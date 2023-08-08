@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
+import Home from "./home";
+import Navigator from "../routes/homeStack";
 
-export default function Home() {
-  return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Home</Text>
-      <Text style={globalStyles.titleText}>Home</Text>
-      <Text style={globalStyles.titleText}>Home</Text>
-    </View>
-  );
+export default function Index() {
+  return <Navigator />;
 }
