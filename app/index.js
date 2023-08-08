@@ -1,23 +1,61 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 import { Stack, useRouter, Link } from "expo-router";
 
 export default function Home() {
   const router = useRouter();
+  const [reviews, setReviews] = useState([
+    {
+      title: "Zelda, Breath of Fresh Air",
+      rating: 5,
+      body: "lorem ipsum",
+      key: "1",
+    },
+    {
+      title: "Gotta Catch Them All (again)",
+      rating: 4,
+      body: "lorem ipsum",
+      key: "2",
+    },
+    {
+      title: 'Not So "Final" Fantasy',
+      rating: 3,
+      body: "lorem ipsum",
+      key: "3",
+    },
+  ]);
   const pressHandler = () => {
     router.push("/reviewDetails");
   };
 
   return (
     <>
-      <Stack.Screen options={{ headerTitle: "" }} />
+      <Stack.Screen
+        options={{
+          headerTitle: "GameZone",
+        }}
+      />
       <View style={globalStyles.container}>
-        <Text style={globalStyles.titleText}>Home</Text>
-        <Button onPress={pressHandler} title="go to review dets" />
-        <Link href="/about" asChild>
-          <Button title="About" />
-        </Link>
+        <FlatList
+          data={reviews}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() =>
+                router.push({ pathname: `/reviewDetails`, params: item })
+              }
+            >
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </>
   );

@@ -24,7 +24,19 @@ const Layout = () => {
     return null;
   }
 
-  return <Stack onLayout={onLayoutRootView} />;
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#eee",
+          height: 195,
+        },
+        headerShadowVisible: false,
+        headerTintColor: "#444",
+      }}
+      onLayout={onLayoutRootView}
+    />
+  );
 };
 
 export default Layout;

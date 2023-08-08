@@ -1,11 +1,19 @@
+import { Stack, useLocalSearchParams, useSearchParams } from "expo-router";
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
 export default function ReviewDetails() {
+  const param = useSearchParams();
+  const params = useLocalSearchParams();
+  console.log(param, params);
+
   return (
-    <View style={styles.container}>
-      <Text>Review Details</Text>
-    </View>
+    <>
+      <Stack.Screen options={{ headerTitle: "Review Details" }} />
+      <View style={styles.container}>
+        <Text>{params.title}</Text>
+      </View>
+    </>
   );
 }
 
