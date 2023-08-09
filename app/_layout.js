@@ -4,7 +4,6 @@ import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { Drawer } from "expo-router/drawer";
 import CustomDrawerContent from "../components/CustomDrawerContent";
-import Header from "../shared/Header";
 
 SplashScreen.preventAutoHideAsync();
 

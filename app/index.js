@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Stack, useRouter, Link } from "expo-router";
-import Header from "../shared/Header";
+import Header from "../shared/header";
+import Card from "../shared/card";
 
 export default function Home() {
   const router = useRouter();
@@ -42,8 +43,8 @@ export default function Home() {
       <Stack.Screen
         options={{
           // This code shows how to replace the default header
-          // headerTitle: () => <Header />,
-          headerTitle: "GameZone",
+          headerTitle: () => <Header title={"GameZone"} />,
+          // headerTitle: "GameZone",
           // title renames the text in the drawer
           title: "Game Zone",
         }}
@@ -58,7 +59,9 @@ export default function Home() {
                 router.push({ pathname: `/reviewDetails`, params: item })
               }
             >
-              <Text style={globalStyles.titleText}>{item.title}</Text>
+              <Card>
+                <Text style={globalStyles.titleText}>{item.title}</Text>
+              </Card>
             </TouchableOpacity>
           )}
         />

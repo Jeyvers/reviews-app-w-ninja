@@ -1,12 +1,15 @@
 import { Stack } from "expo-router";
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import Header from "../shared/header";
 
 export default function About() {
   return (
     <Stack.Screen
       options={{
-        headerTitle: "About GameZone",
+        headerTitle: () => <Header title={"About GameZone"} />,
+
+        // headerTitle: "About GameZone",
         // title renames the text in the drawer
         title: "About Game Zone",
       }}
