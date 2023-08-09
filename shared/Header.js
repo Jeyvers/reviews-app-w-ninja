@@ -1,16 +1,19 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ImageBackground } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 
 export default function Header({ title }) {
   return (
-    <View style={styles.header}>
-      <Text style={styles.headerText}>{title}</Text>
+    <ImageBackground
+      source={require("../assets/game_bg.png")}
+      style={styles.header}
+    >
       <Image
         source={require("../assets/heart_logo.png")}
         style={styles.headerImage}
       />
-    </View>
+      <Text style={styles.headerText}>{title}</Text>
+    </ImageBackground>
   );
 }
 
@@ -28,12 +31,12 @@ const styles = StyleSheet.create({
     color: "#333",
     letterSpacing: 1,
   },
-  rating: {
+  headerTitle: {
     flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: 16,
-    marginTop: 16,
-    borderTopWidth: 1,
-    borderTopColor: "#eee",
+  },
+  headerImage: {
+    width: 26,
+    height: 26,
+    marginHorizontal: 10,
   },
 });
