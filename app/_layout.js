@@ -1,7 +1,10 @@
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
+import { Drawer } from "expo-router/drawer";
+import CustomDrawerContent from "../components/CustomDrawerContent";
+import Header from "../shared/Header";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,17 +28,21 @@ const Layout = () => {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#eee",
-          height: 195,
-        },
-        headerShadowVisible: false,
-        headerTintColor: "#444",
-      }}
-      onLayout={onLayoutRootView}
-    />
+    <Drawer
+    // drawerContent={(props) => <CustomDrawerContent props={props} />}
+    >
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#eee",
+            height: 195,
+          },
+          headerShadowVisible: false,
+          headerTintColor: "#444",
+        }}
+        onLayout={onLayoutRootView}
+      />
+    </Drawer>
   );
 };
 

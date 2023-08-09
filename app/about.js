@@ -1,11 +1,20 @@
+import { Stack } from "expo-router";
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
 export default function About() {
   return (
-    <View style={styles.container}>
-      <Text>About</Text>
-    </View>
+    <Stack.Screen
+      options={{
+        headerTitle: "GameZone",
+        // title renames the text in the drawer
+        title: "Game Zone",
+      }}
+    >
+      <View style={styles.container}>
+        <Text>About</Text>
+      </View>
+    </Stack.Screen>
   );
 }
 

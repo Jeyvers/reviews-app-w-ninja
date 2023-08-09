@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Stack, useRouter, Link } from "expo-router";
+import Header from "../shared/Header";
 
 export default function Home() {
   const router = useRouter();
@@ -40,9 +41,13 @@ export default function Home() {
     <>
       <Stack.Screen
         options={{
-          headerTitle: "GameZone",
+          // This code shows how to replace the default header
+          headerTitle: () => <Header />,
+          // title renames the text in the drawer
+          // title: "Game Zone",
         }}
       />
+
       <View style={globalStyles.container}>
         <FlatList
           data={reviews}
