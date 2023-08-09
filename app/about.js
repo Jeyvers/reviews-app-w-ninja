@@ -6,9 +6,9 @@ export default function About() {
   return (
     <Stack.Screen
       options={{
-        headerTitle: "GameZone",
+        headerTitle: "About GameZone",
         // title renames the text in the drawer
-        title: "Game Zone",
+        title: "About Game Zone",
       }}
     >
       <View style={styles.container}>

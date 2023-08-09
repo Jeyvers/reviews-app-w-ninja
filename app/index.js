@@ -42,9 +42,10 @@ export default function Home() {
       <Stack.Screen
         options={{
           // This code shows how to replace the default header
-          headerTitle: () => <Header />,
+          // headerTitle: () => <Header />,
+          headerTitle: "GameZone",
           // title renames the text in the drawer
-          // title: "Game Zone",
+          title: "Game Zone",
         }}
       />
 

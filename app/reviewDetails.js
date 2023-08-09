@@ -9,7 +9,9 @@ export default function ReviewDetails() {
 
   return (
     <>
-      <Stack.Screen options={{ headerTitle: "Review Details" }} />
+      <Stack.Screen
+        options={{ headerTitle: "Review Details", title: "Review Details" }}
+      />
       <View style={styles.container}>
         <Text>{params.title}</Text>
       </View>
