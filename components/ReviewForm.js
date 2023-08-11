@@ -3,6 +3,7 @@ import React from "react";
 import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
 import * as yup from "yup";
+import FlatButton from "../shared/button";
 
 const reviewSchema = yup.object({
   title: yup.string().required().min(4),
@@ -70,11 +71,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
               {props.touched.rating && props.errors.rating}
             </Text>
             <View style={{ marginVertical: 10, borderRadius: 6 }}>
-              <Button
-                title={"Submit"}
-                color="maroon"
-                onPress={props.handleSubmit}
-              />
+              <FlatButton text="submit" onPress={props.handleSubmit} />
             </View>
           </View>
         )}
