@@ -104,7 +104,7 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   modalContainer: {
-    paddingTop: Platform.OS === "ios" ? 70 : 0,
+    paddingTop: Platform.OS === "ios" ? 70 : 30,
   },
 
   modalToggle: {

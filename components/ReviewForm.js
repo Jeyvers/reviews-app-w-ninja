@@ -70,7 +70,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
             <Text style={globalStyles.errorText}>
               {props.touched.rating && props.errors.rating}
             </Text>
-            <View style={{ marginVertical: 10, borderRadius: 6 }}>
+            <View style={{ marginVertical: 7, borderRadius: 6 }}>
               <FlatButton text="submit" onPress={props.handleSubmit} />
             </View>
           </View>
