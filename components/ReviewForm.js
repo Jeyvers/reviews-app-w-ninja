@@ -41,6 +41,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
               placeholder="Review title"
               onChangeText={props.handleChange("title")}
               value={props.values.title}
+              onBlur={props.handleBlur("title")}
             />
             <Text style={globalStyles.errorText}>
               {props.touched.title && props.errors.title}
@@ -51,6 +52,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
               placeholder="Review body"
               onChangeText={props.handleChange("body")}
               value={props.values.body}
+              onBlur={props.handleBlur("body")}
             />
             <Text style={globalStyles.errorText}>
               {props.touched.body && props.errors.body}
@@ -62,6 +64,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
               onChangeText={props.handleChange("rating")}
               value={props.values.rating}
               keyboardType="numeric"
+              onBlur={props.handleBlur("rating")}
             />
             <Text style={globalStyles.errorText}>
               {props.touched.rating && props.errors.rating}
