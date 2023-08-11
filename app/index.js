@@ -7,12 +7,15 @@ import {
   FlatList,
   TouchableOpacity,
   Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Stack, useRouter, Link } from "expo-router";
 import Header from "../shared/header";
 import Card from "../shared/card";
 import { MaterialIcons } from "@expo/vector-icons";
+import ReviewForm from "../components/ReviewForm";
 
 export default function Home() {
   const router = useRouter();
@@ -38,8 +41,12 @@ export default function Home() {
     },
   ]);
 
-  const pressHandler = () => {
-    router.push("/reviewDetails");
+  const addReview = (item) => {
+    const review = { ...item, key: Math.random().toString() };
+    setReviews((prevReviews) => {
+      return [review, ...prevReviews];
+    });
+    console.log(review);
   };
 
   return (
@@ -53,18 +60,20 @@ export default function Home() {
           title: "Game Zone",
         }}
       />
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <Modal visible={showModal} animationType="slide">
+          <View style={styles.modalContainer}>
+            <MaterialIcons
+              name="close"
+              size={24}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+              onPress={() => setShowModal(false)}
+            />
 
-      <Modal visible={showModal} animationType="slide">
-        <View style={styles.modalContainer}>
-          <MaterialIcons
-            name="close"
-            size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-            onPress={() => setShowModal(false)}
-          />
-          <Text> Hello From the modal :{":)"}</Text>
-        </View>
-      </Modal>
+            <ReviewForm addReview={addReview} setShowModal={setShowModal} />
+          </View>
+        </Modal>
+      </TouchableWithoutFeedback>
 
       <View style={globalStyles.container}>
         <MaterialIcons
