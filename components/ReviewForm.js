@@ -49,6 +49,7 @@ export default function ReviewForm({ addReview, setShowModal }) {
             </Text>
             <TextInput
               multiline
+              minHeight={60}
               style={globalStyles.input}
               placeholder="Review body"
               onChangeText={props.handleChange("body")}
@@ -59,7 +60,6 @@ export default function ReviewForm({ addReview, setShowModal }) {
               {props.touched.body && props.errors.body}
             </Text>
             <TextInput
-              multiline
               style={globalStyles.input}
               placeholder="Review rating (1-5)"
               onChangeText={props.handleChange("rating")}
