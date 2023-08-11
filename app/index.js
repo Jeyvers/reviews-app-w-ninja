@@ -9,6 +9,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform,
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Stack, useRouter, Link } from "expo-router";
@@ -102,6 +103,10 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+  modalContainer: {
+    paddingTop: Platform.OS === "ios" ? 70 : 0,
+  },
+
   modalToggle: {
     justifyContent: "center",
     alignItems: "center",
